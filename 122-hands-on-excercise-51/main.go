@@ -11,12 +11,12 @@ func main() {
 	mp["bond_yash"] = []string{"shaken", "notstirred", "martinis"}
 	mp["bond_manav"] = []string{"shaken", "notstirred", "martinis"}
 	fmt.Println("before deletion\n")
-	fmt.Println("%#v", mp)
+	fmt.Printf("%#v", mp)
 
 	delete(mp, "bond_manav")
 
-	fmt.Println("after")
-	fmt.Println("%#v", mp)
+	fmt.Println(fmt.Println("afterhhh"))
+	fmt.Printf("%#v", mp)
 
 	// for key, val := range mp {
 	// 	fmt.Printf("%s have given choices\n", key)
