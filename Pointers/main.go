@@ -14,7 +14,7 @@ func main() {
 	*q++
 	*p++
 	fmt.Println(i, j)
-	fmt.Println(*q, *p)
+	fmt.Println(*, *p)
 	
 
 }
