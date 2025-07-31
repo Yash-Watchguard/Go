@@ -1,15 +1,29 @@
 package main
 
-import(
+import (
 	"fmt"
+	"runtime"
+	// "runtime"
+	"sync"
 )
-type types interface{
-	int | float64 
+func SomeOperation(wg *sync.WaitGroup){
+	fmt.Println("hi i am done")
+	defer wg.Done()
 }
+func main() {
+    var counter int32
+    var wg sync.WaitGroup
 
-func add[T types](x, y T)T{
-   return x+y
-}
-func main(){
-    fmt.Println(add(3,5))
+    for i := 0; i < 100; i++ {
+        wg.Add(1)
+        go func() {
+			runtime.Gosched()
+            counter++
+
+            wg.Done()
+        }()
+    }
+
+    wg.Wait()
+    fmt.Println("Final Counter:", counter)
 }
